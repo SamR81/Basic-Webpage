@@ -1,0 +1,107 @@
+body {
+  font-family: 'Palatino Linotype', sans-serif;
+  margin: 0; 
+  padding: 0;
+  background-color: whitesmoke;
+  color: slategrey;
+  }
+
+header {
+  background-color: lavenderblush;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+nav {
+  background-color: lightpink;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  margin: 0 20px;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+  color: slategrey;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav ul ul {
+  display: none;
+  position: absolute;
+  background-color: pink;
+  border-radius: 0 0 5px 5px;
+  margin-top: 10px;
+}
+
+nav ul li:hover > ul {
+  display: inherit;
+}
+
+nav ul ul li {
+  width: 200px;
+  display: list-item;
+  position: relative;
+}
+
+section {
+  margin: 20px;
+  background-color: ghostwhite;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+  color: slategrey;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+#content-info {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+input[type="text"] {
+  font-family: 'Palatino Linotype', sans-serif;
+  color: darkslategrey;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid slategrey;
+  border-radius: 5px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+  background-color: pink;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  margin-top: 0px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  background-color: lightcoral;
+}
