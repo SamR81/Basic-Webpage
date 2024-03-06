@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSCI 355 Basic Webpage</title>
+    <link rel="stylesheet" type="text/css" href="webpageStyles.css">
+    <style>
+        body {
+            font-family: 'Palatino Linotype', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: whitesmoke;
+            color: slategrey;
+        }
+
+        header {
+            background-color: lavenderblush;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        nav {
+            background-color: lightpink;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 20px;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: slategrey;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav ul ul {
+            display: none;
+            position: absolute;
+            background-color: pink;
+            border-radius: 0 0 5px 5px;
+            margin-top: 10px;
+        }
+
+        nav ul li:hover > ul {
+            display: inherit;
+        }
+
+        nav ul ul li {
+            width: 200px;
+            display: list-item;
+            position: relative;
+        }
+
+        section {
+            margin: 20px;
+            background-color: ghostwhite;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: slategrey;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #content-info {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        input[type="text"] {
+            font-family: 'Palatino Linotype', sans-serif;
+            color: darkslategrey;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid slategrey;
+            border-radius: 5px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            background-color: pink;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            margin-top: 0px;
+            margin-right: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>CSCI 355 Basic Webpage</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Course</a>
+                <ul>
+                    <li><a href="https://gaia.cs.umass.edu/kurose_ross/eighth.php" target="_blank">Kurose and Ross</a></li>
+                    <li><a href="http://w3schools.com" target="_blank">W3Schools</a></li>
+                    <li><a href="https://www.geeksforgeeks.org/web-development/" target="_blank">GeeksforGeeks</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#">Browser</a>
+                <ul>
+                    <li><a href="#" onclick="displayContent('Navigator')">Navigator</a></li>
+                    <li><a href="#" onclick="displayContent('Window')">Window</a></li>
+                    <li><a href="#" onclick="displayContent('Screen')">Screen</a></li>
+                    <li><a href="#" onclick="displayContent('Location')">Location</a></li>
+                    <li><a href="#" onclick="displayContent('Geolocation')">Geolocation</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#">About</a>
+                <ul>
+                    <li><a href="#" onclick="displayContent('Description')">Description</a></li>
+                    <li><a href="#" onclick="displayContent('Contact')">Contact Me</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <section id="content-section">
+        <h2>Content Section</h2>
+        <div id="content-info"></div>
+    </section>
+
+    <script>
+        function updateContent(info) {
+            document.getElementById('content-info').innerHTML = info;
+        }
+
+        function displayContent(type) {
+            var contentInfo = "";
+
+            switch (type) {
+
+                case 'Navigator':
+                    contentInfo = "Navigator Information:<br>";
+                    contentInfo += "appName: " + navigator.appName + "<br>";
+                    contentInfo += "product: " + navigator.product + "<br>";
+                    contentInfo += "appVersion: " + navigator.appVersion + "<br>";
+                    contentInfo += "userAgent: " + navigator.userAgent + "<br>";
+                    contentInfo += "platform: " + navigator.platform + "<br>";
+                    contentInfo += "language: " + navigator.language + "<br>";
+                    break;
+
+                case 'Window':
+                    contentInfo = "Window Information:<br>";
+                    contentInfo += "innerHeight: " + window.innerHeight + " pixels<br>";
+                    contentInfo += "innerWidth: " + window.innerWidth + " pixels<br>";
+                    break;
+
+                case 'Screen':
+                    contentInfo = "Screen Information:<br>";
+                    contentInfo += "width: " + screen.width + " pixels<br>";
+                    contentInfo += "height: " + screen.height + " pixels<br>";
+                    contentInfo += "availWidth: " + screen.availWidth + " pixels<br>";
+                    contentInfo += "availHeight: " + screen.availHeight + " pixels<br>";
+                    contentInfo += "colorDepth: " + screen.colorDepth + "<br>";
+                    contentInfo += "pixelDepth: " + screen.pixelDepth + "<br>";
+                    break;
+
+                case 'Location':
+                    contentInfo = "Location Information:<br>";
+                    contentInfo += "href: " + window.location.href + "<br>";
+                    contentInfo += "hostname: " + window.location.hostname + "<br>";
+                    contentInfo += "pathname: " + window.location.pathname + "<br>";
+                    contentInfo += "protocol: " + window.location.protocol + "<br>";
+                    break;
+
+                case 'Geolocation':
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(function (position) {
+                            contentInfo = "Geolocation Information:<br>";
+                            contentInfo += "Latitude: " + position.coords.latitude + "<br>";
+                            contentInfo += "Longitude: " + position.coords.longitude + "<br>";
+                            updateContent(contentInfo);
+                        }, function (error) {
+                            updateContent("Geolocation error: " + error.message);
+                        });
+                    } else {
+                        contentInfo = "Geolocation is not supported by this browser.";
+                        updateContent(contentInfo);
+                    }
+                    break;
+
+                case 'Description':
+                    contentInfo = "Meet the Developer:<br>";
+                    contentInfo += "Hello there! 👋 I'm Samiha Rahman, the developer behind this page.<br>";
+                    contentInfo += "I'm a Computer Science Major, currently studying at Queens College.<br>";
+                    contentInfo += "Please enjoy exploring my webpage!<br>";
+                    break;
+
+                case 'Contact':
+                    contentInfo = "Contact Me:<br>";
+                    contentInfo += "Feel free to contact me using the form below:<br>";
+                    contentInfo += "<form action='mailto:samiharahman81@gmail.com' method='post' enctype='text/plain'>";
+                    contentInfo += "Name:<br>";
+                    contentInfo += "<input type='text' name='name'><br>";
+                    contentInfo += "E-mail:<br>";
+                    contentInfo += "<input type='text' name='email'><br>";
+                    contentInfo += "Comment:<br>";
+                    contentInfo += "<input type='text' name='comment' size='50'><br><br>";
+                    contentInfo += "<input type='submit' value='Send'>";
+                    contentInfo += "<input type='reset' value='Reset'>";
+                    contentInfo += "</form>";
+                    break;
+
+                default:
+                    contentInfo = "Invalid content type.";
+                    break;
+            }
+
+            updateContent(contentInfo);
+        }
+
+    </script>
+
+</body>
+</html>
